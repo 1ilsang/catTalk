@@ -53,7 +53,6 @@ router.get('/go/:msg', function(req, res, next) {
         if (error) {
           return console.error('upload failed:', error);
         }
-        console.log('Upload successful!  Server responded with:', body);
         console.log(response.headers);
         res.send(body);
       });
