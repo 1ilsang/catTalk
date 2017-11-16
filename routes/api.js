@@ -22,7 +22,8 @@ router.get('/trans/:msg',function(req,res,next){
    request.post(options, function (error, response, body) {
      if (!error && response.statusCode == 200) {
        res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-       res.end(body);
+       var data = JSON.parse(body);
+       res.end(JSON.stringify(data['message']['result']));
      } else {
        res.status(response.statusCode).end();
        console.log('error = ' + response.statusCode);
